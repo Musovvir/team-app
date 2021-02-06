@@ -1,0 +1,53 @@
+/*.login {*/
+/*    width: 350px;*/
+/*    height: 200px;*/
+/*    margin: auto;*/
+/*    box-shadow: 0 5px 5px 5px lightgray;*/
+/*    border-radius: 3px;*/
+/*}*/
+
+/*.block-login {*/
+/*    padding-top: 10px;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.form-button {*/
+/*    padding-top: 15px;*/
+/*}*/
+
+/*.error-text {*/
+/*    font-size: .9em;*/
+/*    color: red;*/
+/*}*/
+
+.login {
+  max-width: 400px;
+  margin: auto;
+  border-radius: 3px;
+  box-shadow: 0 0 5px 5px whitesmoke;
+}
+
+.login-block {
+  margin-top: 30vh;
+  padding: 30px 0 5px 0;
+}
+
+.ant-form-item-control-input-content {
+  text-align: center;
+}
+
+.error-text {
+  text-align: left;
+  font-size: 0.8em;
+  color: red;
+}
+
+.login-form {
+  max-width: 300px;
+  margin: auto;
+}
+
+.login-form-button {
+  margin: auto;
+  max-width: 300px;
+}
