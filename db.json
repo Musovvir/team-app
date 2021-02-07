@@ -1,16 +1,11 @@
 {
   "posts": [
     {
-<<<<<<< HEAD
+      "userId": 1,
       "id": 1,
       "avatar": "",
       "nickname": "",
-      "title": "",
-      "text": "",
-      "image": ""
-=======
-      "userId": 1,
-      "id": 1,
+      "image": "",
       "title": "Здесь будет заголовок Вашего поста",
       "text": "Здесь будет основной текст Вашего поста"
     },
@@ -25,21 +20,14 @@
       "user": "typicode",
       "title": "Здесь будет заголовок Вашего поста",
       "text": "Здесь будет основной текст Вашего поста"
->>>>>>> d00201574f5c8821ac329b42826dd3af27a1fe30
     }
   ],
   "users": [
     {
-<<<<<<< HEAD
       "userId": 1,
-      "id": 1,
-      "body": "some comment",
-      "postId": 1,
-=======
       "id": 1,
       "login": "some comment",
       "password": "qwerty",
->>>>>>> d00201574f5c8821ac329b42826dd3af27a1fe30
       "token": "qwer123(20)$"
     }
   ]
