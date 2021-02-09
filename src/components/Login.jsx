@@ -4,7 +4,6 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import { useDispatch, useSelector } from "react-redux";
 import { loginStart } from "../redux/actions/authorization";
-import { Route } from "react-router-dom";
 
 function Login() {
   const dispatch = useDispatch();
