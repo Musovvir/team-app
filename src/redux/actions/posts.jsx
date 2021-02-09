@@ -14,5 +14,5 @@ export function loadPosts() {
 }
 
 export function toggleModal() {
-    return { type: "toggle/modal" };
+  return { type: "toggle/modal" };
 }

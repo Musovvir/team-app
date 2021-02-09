@@ -7,7 +7,7 @@ import Logout from "./components/Logout";
 
 function App() {
   const token = useSelector((state) => state.authorization.token);
-  console.log({token})
+  console.log({ token });
 
   let routes;
 

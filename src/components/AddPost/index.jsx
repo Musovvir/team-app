@@ -1,15 +1,15 @@
 import React from "react";
 import { PlusOutlined } from "@ant-design/icons";
 import { Button } from "antd";
-import {toggleModal} from "../../redux/actions/posts";
-import {useDispatch} from "react-redux";
+import { toggleModal } from "../../redux/actions/posts";
+import { useDispatch } from "react-redux";
 
 function AddPost(props) {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-    const handleClick = () => {
-        dispatch(toggleModal());
-    }
+  const handleClick = () => {
+    dispatch(toggleModal());
+  };
   return (
     <div className="addPost">
       <button className="addButton" onClick={handleClick}>

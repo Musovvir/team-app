@@ -15,9 +15,9 @@ function Post(props) {
           <div className="time">{moment(Post.time).format("LT")}</div>
         </div>
       </div>
-        <Title level={4}>
+      <Title level={4}>
         <h4>Lorem ipsum dolor sit amet</h4>
-        </Title>
+      </Title>
       <div className="text">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim

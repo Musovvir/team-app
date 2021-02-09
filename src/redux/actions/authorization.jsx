@@ -1,26 +1,26 @@
-export const loginStart = (login, password) => dispatch => {
-    dispatch({ type: "auth/started" });
+export const loginStart = (login, password) => (dispatch) => {
+  dispatch({ type: "auth/started" });
 
-    fetch("http://localhost:3010/admin")
-      .then((response) => response.json())
-      .then((json) => {
-        const random = Math.random();
+  fetch("http://localhost:3010/admin")
+    .then((response) => response.json())
+    .then((json) => {
+      const random = Math.random();
 
-        if (random < 0.5) {
-          dispatch({
-            type: "auth/failed",
-            payload: json,
-          });
-        } else {
-          localStorage.setItem("auth-token", json.token)
+      if (random < 0.5) {
+        dispatch({
+          type: "auth/failed",
+          payload: json,
+        });
+      } else {
+        localStorage.setItem("auth-token", json.token);
 
-          dispatch({
-            type: "auth/succeed",
-            payload: json,
-          });
-        }
-      });
-  };
+        dispatch({
+          type: "auth/succeed",
+          payload: json,
+        });
+      }
+    });
+};
 
 export const logoutStart = () => {
   localStorage.removeItem("auth-token");

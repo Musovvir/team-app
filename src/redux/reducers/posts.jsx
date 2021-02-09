@@ -23,7 +23,7 @@ export function posts(state = initialState, action) {
       return {
         ...state,
         opened: !state.opened,
-      }
+      };
 
     default:
       return state;

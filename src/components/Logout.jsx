@@ -12,9 +12,7 @@ function Logout(props) {
   };
   return (
     <div className="logout">
-      <span onClick={logout}>
-        Выход
-      </span>
+      <span onClick={logout}>Выход</span>
     </div>
   );
 }
