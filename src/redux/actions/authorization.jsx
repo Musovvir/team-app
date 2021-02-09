@@ -1,8 +1,7 @@
-export const loginStart = (login, password) => {
-  return (dispatch) => {
+export const loginStart = (login, password) => dispatch => {
     dispatch({ type: "auth/started" });
 
-    fetch("http://localhost:3000/login")
+    fetch("http://localhost:3010/admin")
       .then((response) => response.json())
       .then((json) => {
         const random = Math.random();
@@ -13,6 +12,8 @@ export const loginStart = (login, password) => {
             payload: json,
           });
         } else {
+          localStorage.setItem("auth-token", json.token)
+
           dispatch({
             type: "auth/succeed",
             payload: json,
@@ -20,7 +21,6 @@ export const loginStart = (login, password) => {
         }
       });
   };
-};
 
 export const logoutStart = () => {
   localStorage.removeItem("auth-token");

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 body {
   background-color: #edeef0;
   padding-top: 20px;
@@ -120,7 +119,6 @@ button .ant-btn-primary:hover {
   box-shadow: 0 0 0 0 white;
 }
 
-
 /*AddPostWindow*/
 
 .addPostWindow {
@@ -137,35 +135,14 @@ button .ant-btn-primary:hover {
   margin-left: 25px;
 }
 
-
-=======
-/*.login {*/
-/*    width: 350px;*/
-/*    height: 200px;*/
-/*    margin: auto;*/
-/*    box-shadow: 0 5px 5px 5px lightgray;*/
-/*    border-radius: 3px;*/
-/*}*/
-
-/*.block-login {*/
-/*    padding-top: 10px;*/
-/*    text-align: center;*/
-/*}*/
-
-/*.form-button {*/
-/*    padding-top: 15px;*/
-/*}*/
-
-/*.error-text {*/
-/*    font-size: .9em;*/
-/*    color: red;*/
-/*}*/
+/*Login*/
 
 .login {
   max-width: 400px;
   margin: auto;
   border-radius: 3px;
-  box-shadow: 0 0 5px 5px whitesmoke;
+  box-shadow: 0 0 5px 0 whitesmoke;
+  background-color: white;
 }
 
 .login-block {
@@ -192,4 +169,15 @@ button .ant-btn-primary:hover {
   margin: auto;
   max-width: 300px;
 }
->>>>>>> d00201574f5c8821ac329b42826dd3af27a1fe30
+
+
+.logout {
+  padding: 5px 10px 5px 0;
+  text-align: right;
+  color: blue;
+}
+
+.logout:hover {
+  cursor: pointer;
+  color: red;
+}

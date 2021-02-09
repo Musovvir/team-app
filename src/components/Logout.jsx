@@ -11,10 +11,10 @@ function Logout(props) {
     dispatch(logoutStart());
   };
   return (
-    <div>
-      <a href="#" onClick={logout}>
+    <div className="logout">
+      <span onClick={logout}>
         Выход
-      </a>
+      </span>
     </div>
   );
 }

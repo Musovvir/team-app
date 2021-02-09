@@ -1,50 +1,101 @@
 import React, { useState } from "react";
+import { Form, Input, Button } from "antd";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import "antd/dist/antd.css";
 import { useDispatch, useSelector } from "react-redux";
 import { loginStart } from "../redux/actions/authorization";
-import { Button } from "antd";
-import { Input, Space } from "antd";
-import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import { Route } from "react-router-dom";
 
-function Login(props) {
+function Login() {
+  const dispatch = useDispatch();
+
+  const error = useSelector((state) => state.authorization.error);
+
+  const authorizing = useSelector((state) => state.authorization.authorizing);
+
+  const [login, setLogin] = useState("");
+
+  const handleChangeLogin = (e) => {
+    setLogin(e.target.value);
+  };
+
+  const [pass, setPass] = useState("");
+
+  const handleChangePass = (e) => {
+    setPass(e.target.value);
+  };
+
+  const handleClick = () => {
+    dispatch(loginStart(login, pass), setLogin(""), setPass(""));
+  };
+
+  const onFinish = (values) => {
+    console.log("Received values of form: ", values);
+  };
 
   return (
     <div className="login">
-      {/*<div className="block-login">*/}
-      {/*  <div className="col-5 py-3 rounded">*/}
-      {/*    <div className="block-form">*/}
-      {/*      <h2 className="text-authorization">Авторизация</h2>*/}
-      {/*      <div className="form-group">*/}
-      {/*        <Space direction="vertical">*/}
-      {/*          <Input*/}
-      {/*            placeholder="Введите логин"*/}
-      {/*            value={login}*/}
-      {/*            onChange={handleChangeLogin}*/}
-      {/*          />*/}
-      {/*          <Input.Password*/}
-      {/*            placeholder="Введите пароль"*/}
-      {/*            value={pass}*/}
-      {/*            onChange={handleChangePass}*/}
-      {/*            iconRender={(visible) =>*/}
-      {/*              visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />*/}
-      {/*            }*/}
-      {/*          />*/}
-      {/*        </Space>*/}
-      {/*      </div>*/}
-      {/*      {error && (*/}
-      {/*        <div className="error-text">Неверный логин или пароль</div>*/}
-      {/*      )}*/}
-      {/*      <div className="form-button">*/}
-      {/*        <Button*/}
-      {/*          onClick={handleClick}*/}
-      {/*          disabled={authorizing}*/}
-      {/*          type="primary"*/}
-      {/*        >*/}
-      {/*          Войти*/}
-      {/*        </Button>*/}
-      {/*      </div>*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
+      <div className="login-block">
+        <Form
+          name="normal_login"
+          className="login-form"
+          initialValues={{
+            remember: true,
+          }}
+          onFinish={onFinish}
+        >
+          <Form.Item
+            name="username"
+            rules={[
+              {
+                required: true,
+                message: "Please input your Username!",
+              },
+            ]}
+          >
+            <Input
+              prefix={<UserOutlined className="site-form-item-icon" />}
+              placeholder="Введите логин"
+              value={login}
+              onChange={handleChangeLogin}
+            />
+          </Form.Item>
+          <Form.Item
+            name="password"
+            rules={[
+              {
+                required: true,
+                message: "Please input your Password!",
+              },
+            ]}
+          >
+            <Input
+              prefix={<LockOutlined className="site-form-item-icon" />}
+              type="password"
+              placeholder="Введите пароль"
+              value={pass}
+              onChange={handleChangePass}
+            />
+            {error && (
+              <div className="error-text">Неверный логин или пароль</div>
+            )}
+          </Form.Item>
+          <div className="login-form-button">
+            <Form.Item>
+              <a href="/posts">
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  onClick={handleClick}
+                  disabled={authorizing}
+                >
+                  Войти
+                </Button>
+              </a>
+            </Form.Item>
+          </div>
+        </Form>
+      </div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 const initialState = {
   token: localStorage.getItem("auth-token"),
   authorizing: false,
-  error: true,
+  error: false,
 };
 
 export function authorization(state = initialState, action) {
@@ -13,18 +13,18 @@ export function authorization(state = initialState, action) {
         error: false,
       };
 
-    case "auth/succeed":
-      return {
-        ...state,
-        authorizing: false,
-        token: action.payload.token,
-      };
-
     case "auth/failed":
       return {
         ...state,
         authorizing: false,
         error: true,
+      };
+
+    case "auth/succeed":
+      return {
+        ...state,
+        authorizing: false,
+        token: action.payload.token,
       };
 
     case "auth/logout":
