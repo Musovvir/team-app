@@ -6,7 +6,6 @@ import { Input, Space } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 
 function Login(props) {
-
   return (
     <div className="login">
       {/*<div className="block-login">*/}

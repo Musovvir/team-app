@@ -1,20 +1,24 @@
-import React, {useState} from 'react';
-import {Form, Input} from "antd";
+import React, { useState } from "react";
+import { Form, Input } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { getText } from "../../redux/actions/posts";
 
 function AddText(props) {
-    const [text, setText] = useState()
+  const dispatch = useDispatch();
 
-    const handleChangeText = (e) => {
-        setText(e.target.value)
-    }
+  const text = useSelector((state) => state.posts.text);
 
-    return (
-        <div>
-            <Form.Item>
-                <Input placeholder="Text" value={text} onChange={handleChangeText}/>
-            </Form.Item>
-        </div>
-    );
+  const GetText = (e) => {
+    dispatch(getText(e.target.value));
+  };
+
+  return (
+    <div>
+      <Form.Item>
+        <Input placeholder="Text" value={text} onChange={GetText} />
+      </Form.Item>
+    </div>
+  );
 }
 
 export default AddText;

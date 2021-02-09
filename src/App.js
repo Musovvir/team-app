@@ -1,61 +1,46 @@
-<<<<<<< HEAD
-import React from "react";
+import React, { useEffect } from "react";
 import Posts from "./components/Posts";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import { useSelector } from "react-redux";
-
-function App() {
-  const token = useSelector((state) => state.authorization.token);
-
-  let routes;
-
-  if (token) {
-    routes = <Switch>{/*<Route path="/logout" component={Logout} />*/}</Switch>;
-  } else {
-    routes = (
-      <Switch>
-        {/*<Route path="/login" component={Qwer} />*/}
-        {/*<Redirect to="login" />*/}
-        <Route path="/posts" component={Posts} />
-        <Redirect to="posts" />
-=======
-import { useSelector } from "react-redux";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Qwer from "./components/Qwer";
 import Logout from "./components/Logout";
+import { useDispatch, useSelector } from "react-redux";
+import AddPostWindow from "./components/AddPostWindow";
+import { loadPosts } from "./redux/actions/posts";
 
 function App() {
   const token = useSelector((state) => state.authorization.token);
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadPosts());
+  });
+
   let routes;
 
-  if (token) {
+  if (!token) {
     routes = (
       <Switch>
-        <Route path="/logout" component={Logout} />
-        {/*<Route path="/posts" component={Posts} />*/}
+        {/*<Route path="/logout" component={Logout} />*/}
+        <Route path="/posts" component={Posts} />
+        <Route path="/addPostWindow" component={AddPostWindow} />
         <Redirect to="/posts" />
       </Switch>
     );
   } else {
     routes = (
       <Switch>
-        <Route path="/login" component={Qwer} />
-        <Redirect to="/login" />
->>>>>>> d00201574f5c8821ac329b42826dd3af27a1fe30
+        {/*<Route path="/login" component={Qwer} />*/}
+        {/*<Redirect to="/login" />*/}
       </Switch>
     );
   }
 
-<<<<<<< HEAD
   return (
     <BrowserRouter>
       <div className="App">{routes}</div>
     </BrowserRouter>
   );
-=======
-  return <BrowserRouter>{routes}</BrowserRouter>;
->>>>>>> d00201574f5c8821ac329b42826dd3af27a1fe30
 }
 
 export default App;

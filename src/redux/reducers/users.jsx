@@ -15,7 +15,7 @@ export function posts(state = initialState, action) {
       return {
         ...state,
         loading: false,
-          users: action.payload,
+        users: action.payload,
       };
 
     default:

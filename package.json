@@ -7,13 +7,9 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.2",
-<<<<<<< HEAD
-    "antd": "^4.12.1",
     "dayjs": "^1.10.4",
     "moment": "^2.29.1",
-=======
     "antd": "^4.11.2",
->>>>>>> d00201574f5c8821ac329b42826dd3af27a1fe30
     "prettier": "^2.2.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
@@ -31,11 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-<<<<<<< HEAD
-    "dev": "concurrently \"npm start\" \"json server --watch db.json --port 3010\""
-=======
     "dev": "concurrently \"npm start\" \"json-server --watch db.json --port 3010\""
->>>>>>> d00201574f5c8821ac329b42826dd3af27a1fe30
   },
   "eslintConfig": {
     "extends": [

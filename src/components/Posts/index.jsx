@@ -1,16 +1,17 @@
 import React from "react";
 import Post from "./Post";
-import Images from "./Images";
 import AddPost from "../AddPost";
-import AddPostWindow from "../AddPostWindow";
+import { useSelector } from "react-redux";
 
 function Posts(props) {
+  const posts = useSelector((state) => state.posts.posts);
+
   return (
-    <div className="posts">
+    <div className="posts" id="post">
       <AddPost />
-      <Post />
-      <Images />
-      <AddPostWindow />
+      {posts.map((post, index) => {
+        return <Post key={index} post={post} />;
+      })}
     </div>
   );
 }
