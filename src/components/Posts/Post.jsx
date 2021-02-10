@@ -17,7 +17,7 @@ function Post(props) {
           <Avatars />
         </div>
         <div className="nickname">
-          Lorem ipsum
+            {props.post.nickname}
           <div className="time">{moment(Post.time).format("LT")}</div>
         </div>
         <div
@@ -26,15 +26,6 @@ function Post(props) {
         >
           <CloseOutlined />
         </div>
-      </div>
-      <Title level={4}>
-        <h4>Lorem ipsum dolor sit amet</h4>
-      </Title>
-      <div className="text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
       </div>
       <Title level={4}>{props.post.title}</Title>
       <div className="text">{props.post.text}</div>

@@ -19,10 +19,6 @@ function AddPostWindow(props) {
     dispatch(sendPost(title, text));
   };
 
-  if (!opened) {
-    return null;
-  }
-
   return (
     <div className="addPostWindow">
       <AddTitle />

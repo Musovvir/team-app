@@ -1,18 +1,19 @@
 {
   "posts": [
     {
-      "userId": 1,
-      "id": 2,
-      "avatar": "",
-      "nickname": "",
-      "image": "",
-      "title": "sdsdsds",
-      "text": "sdsdsd"
+      "title": "srge4ge4g",
+      "text": "sdvsevwv",
+      "id": 1
     },
     {
-      "title": "dfdfdfd",
-      "text": "dfdfer3434",
+      "title": "adsdsd",
+      "text": "sdsdsds",
       "id": 2
+    },
+    {
+      "title": "sdsds",
+      "text": "sdss",
+      "id": 3
     }
   ],
   "admin": [

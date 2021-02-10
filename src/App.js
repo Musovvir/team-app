@@ -6,6 +6,8 @@ import Login from "./components/Login";
 // import Logout from "./components/Logout";
 // import AddPostWindow from "./components/AddPostWindow";
 import { loadPosts } from "./redux/actions/posts";
+import AddPostWindow from "./components/AddPostWindow";
+import Logout from "./components/Logout";
 
 function App() {
   const token = useSelector((state) => state.authorization.token);
@@ -22,9 +24,9 @@ function App() {
   if (token) {
     routes = (
       <Switch>
-        {/*<Route path="/logout" component={Logout} />*/}
+        <Route path="/logout" component={Logout} />
         <Route path="/posts" component={Posts} />
-        {/*<Route path="/addPostWindow" component={AddPostWindow} />*/}
+        <Route path="/addPostWindow" component={AddPostWindow} />
         <Redirect to="/posts" />
       </Switch>
     );

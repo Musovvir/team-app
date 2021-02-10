@@ -14,7 +14,7 @@ function AddPost() {
 
   return (
     <Link to="/addPostWindow">
-      <div className="addPost">
+      <div className="addPost" onClick={handleClick}>
         <button className="addButton">
           <div className="plus">
             <PlusOutlined />
