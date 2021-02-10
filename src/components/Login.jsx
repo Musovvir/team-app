@@ -4,6 +4,8 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import { useDispatch, useSelector } from "react-redux";
 import { loginStart } from "../redux/actions/authorization";
+import {useEffect} from "react/cjs/react.production.min";
+import {loadPosts} from "../redux/actions/posts";
 
 function Login() {
   const dispatch = useDispatch();
@@ -25,7 +27,7 @@ function Login() {
   };
 
   const handleClick = () => {
-    dispatch(loginStart(login, pass), setLogin(""), setPass(""));
+    dispatch(loginStart(login, pass));
   };
 
   const onFinish = (values) => {

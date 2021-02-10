@@ -3,22 +3,26 @@ import { PlusOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { toggleModal } from "../../redux/actions/posts";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
-function AddPost(props) {
+function AddPost() {
   const dispatch = useDispatch();
 
   const handleClick = () => {
     dispatch(toggleModal());
   };
+
   return (
-    <div className="addPost">
-      <button className="addButton" onClick={handleClick}>
-        <div className="plus">
-          <PlusOutlined />
-        </div>
-        <Button type="primary">Добавить пост</Button>
-      </button>
-    </div>
+    <Link to="/addPostWindow">
+      <div className="addPost">
+        <button className="addButton">
+          <div className="plus">
+            <PlusOutlined />
+          </div>
+          <Button type="primary">Добавить пост</Button>
+        </button>
+      </div>
+    </Link>
   );
 }
 

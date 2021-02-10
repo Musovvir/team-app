@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "./Image";
 
-function Images(props) {
+function Images() {
   return (
     <div className="images">
       <Image />

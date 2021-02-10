@@ -1,7 +1,7 @@
 import React from "react";
 import Avatar from "./Avatar";
 
-function Avatars(props) {
+function Avatars() {
   return (
     <div>
       <Avatar />

@@ -8,8 +8,13 @@ body {
   margin: auto;
   width: 550px;
   height: auto;
-  background-color: #fff;
+}
+
+.post {
+  margin-top: 20px;
   border-radius: 5px;
+  background-color: #fff;
+  position: relative;
 }
 
 .commonPost {
@@ -19,7 +24,19 @@ body {
 .time {
   opacity: 0.5;
   font-size: 13px;
-  margin-top: 5px;
+}
+
+.delete {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.delete:hover {
+  color: red;
+  transition: 0.5s;
 }
 
 .ant-typography {
@@ -127,12 +144,11 @@ button .ant-btn-primary:hover {
   box-shadow: 0 0 5px 0 lightgray;
   width: 300px;
   border-radius: 5px;
-  padding-top: 10px;
+  padding: 25px 0 5px 0;
 }
 
 .ant-input {
   width: 250px;
-  margin-left: 25px;
 }
 
 /*Login*/

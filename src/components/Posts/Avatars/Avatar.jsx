@@ -1,6 +1,6 @@
 import React from "react";
 
-function Avatar(props) {
+function Avatar() {
   return (
     <div>
       <img

@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { logoutStart } from "../redux/actions/authorization";
 
-function Logout(props) {
+function Logout() {
   const dispatch = useDispatch();
 
   const logout = (e) => {
