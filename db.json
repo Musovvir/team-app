@@ -1,19 +1,9 @@
 {
   "posts": [
     {
-      "title": "srge4ge4g",
-      "text": "sdvsevwv",
+      "title": "new post 1",
+      "text": "new post 1",
       "id": 1
-    },
-    {
-      "title": "adsdsd",
-      "text": "sdsdsds",
-      "id": 2
-    },
-    {
-      "title": "sdsds",
-      "text": "sdss",
-      "id": 3
     }
   ],
   "admin": [

@@ -12,7 +12,7 @@ export const loginStart = (login, password) => (dispatch) => {
           payload: json,
         });
       } else {
-        localStorage.setItem("auth-token", json.token);
+        localStorage.setItem("auth-token", json[0].token);
 
         dispatch({
           type: "auth/succeed",

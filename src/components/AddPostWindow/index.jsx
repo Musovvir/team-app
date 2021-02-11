@@ -6,8 +6,7 @@ import { Button, Form } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { sendPost } from "../../redux/actions/posts";
 
-function AddPostWindow(props) {
-  const opened = useSelector((state) => state.posts.opened);
+function AddPostWindow() {
 
   const dispatch = useDispatch();
 

@@ -4,14 +4,12 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Login from "./components/Login";
 // import Logout from "./components/Logout";
-// import AddPostWindow from "./components/AddPostWindow";
 import { loadPosts } from "./redux/actions/posts";
 import AddPostWindow from "./components/AddPostWindow";
 import Logout from "./components/Logout";
 
 function App() {
   const token = useSelector((state) => state.authorization.token);
-  console.log({ token });
 
   const dispatch = useDispatch();
 

@@ -4,8 +4,6 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import { useDispatch, useSelector } from "react-redux";
 import { loginStart } from "../redux/actions/authorization";
-import {useEffect} from "react/cjs/react.production.min";
-import {loadPosts} from "../redux/actions/posts";
 
 function Login() {
   const dispatch = useDispatch();
@@ -83,16 +81,14 @@ function Login() {
           </Form.Item>
           <div className="login-form-button">
             <Form.Item>
-              <a href="/posts">
-                <Button
-                  type="primary"
-                  htmlType="submit"
-                  onClick={handleClick}
-                  disabled={authorizing}
-                >
-                  Войти
-                </Button>
-              </a>
+              <Button
+                type="primary"
+                htmlType="submit"
+                onClick={handleClick}
+                disabled={authorizing}
+              >
+                Войти
+              </Button>
             </Form.Item>
           </div>
         </Form>
