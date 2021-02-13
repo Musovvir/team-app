@@ -1,7 +1,7 @@
 export const loginStart = (login, password) => (dispatch) => {
   dispatch({ type: "auth/started" });
 
-  fetch("http://localhost:3010/admin")
+  fetch("http://localhost:3010/users")
     .then((response) => response.json())
     .then((json) => {
       const random = Math.random();

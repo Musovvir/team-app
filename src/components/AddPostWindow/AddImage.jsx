@@ -1,16 +1,19 @@
-import React, { useState } from "react";
-import { Form, Input } from "antd";
+import React from "react";
+import { Button, Form } from "antd";
+import { useDispatch } from "react-redux";
+import { getImage } from "../../redux/actions/posts";
 
 function AddImage(props) {
-  const [image, setImage] = useState("");
+  const dispatch = useDispatch();
 
-  const handleChangeImage = (e) => {
-    setImage(e.target.value);
+  const imageChange = (e) => {
+    dispatch(getImage(e.target.value));
   };
   return (
     <div>
       <Form.Item>
-        <Input placeholder="Image" value={image} onChange={handleChangeImage} />
+        <input type="file" id="file" onChange={imageChange}/>
+        <Button>Загрузить фото</Button>
       </Form.Item>
     </div>
   );

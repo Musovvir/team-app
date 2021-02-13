@@ -4,6 +4,7 @@ export const initialState = {
   opened: true,
   title: "",
   text: "",
+  image: "",
   deleting: false,
 };
 
@@ -38,6 +39,12 @@ export function posts(state = initialState, action) {
       return {
         ...state,
         text: action.payload,
+      };
+
+    case "get/image":
+      return {
+        ...state,
+        image: action.payload,
       };
 
     case "send/posts/start":

@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import { loadPosts } from "./redux/actions/posts";
 import AddPostWindow from "./components/AddPostWindow";
 import Logout from "./components/Logout";
+import { loadUsers } from "./redux/actions/users";
 
 function App() {
   const token = useSelector((state) => state.authorization.token);
@@ -14,7 +15,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadPosts());
+    dispatch(loadPosts(), loadUsers());
   });
 
   let routes;

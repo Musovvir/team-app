@@ -1,10 +1,10 @@
 import React from "react";
-import Avatar from "./Avatar";
+import UserAvatar from "./UserAvatar";
 
 function Avatars() {
   return (
     <div>
-      <Avatar />
+      <UserAvatar />
     </div>
   );
 }

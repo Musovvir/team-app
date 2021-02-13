@@ -1,13 +1,14 @@
 {
   "posts": [
     {
-      "title": "new post 1",
-      "text": "new post 1",
-      "id": 1
+      "title": "new post",
+      "text": "new post",
+      "id": 2
     }
   ],
-  "admin": [
+  "users": [
     {
+      "userId": 1,
       "login": "admin",
       "password": "qwerty",
       "token": "qwer123(20)$"

@@ -3,7 +3,7 @@ export const initialState = {
   users: [],
 };
 
-export function posts(state = initialState, action) {
+export function users(state = initialState, action) {
   switch (action.type) {
     case "load/users/start":
       return {
@@ -15,7 +15,7 @@ export function posts(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        users: action.payload,
+        users: action.payload.login,
       };
 
     default:

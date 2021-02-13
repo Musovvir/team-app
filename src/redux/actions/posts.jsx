@@ -27,11 +27,15 @@ export function getText(text) {
   return { type: "get/text", payload: text };
 }
 
-export function sendPost(title, text) {
+export function getImage(image) {
+  return { type: "get/image", payload: image };
+}
+
+export function sendPost(title, text, image) {
   return (dispatch) => {
     dispatch({
       type: "send/posts/start",
-      payload: { title, text },
+      payload: { title, text, image },
     });
 
     fetch("http://localhost:3010/posts", {
@@ -43,6 +47,7 @@ export function sendPost(title, text) {
       body: JSON.stringify({
         title,
         text,
+        image
       }),
     })
       .then((response) => response.json())
@@ -75,3 +80,4 @@ export function deletePost(id) {
       });
   };
 }
+

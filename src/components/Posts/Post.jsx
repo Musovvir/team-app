@@ -2,12 +2,13 @@ import React from "react";
 import moment from "moment";
 import Avatars from "./Avatars";
 import Title from "antd/es/typography/Title";
-import Images from "./Images";
 import { CloseOutlined } from "@ant-design/icons";
 import { deletePost } from "../../redux/actions/posts";
 import { useDispatch } from "react-redux";
+import * as PropTypes from "prop-types";
+import Image from "./Images/Image";
 
-function Post(props) {
+function Post({ post }) {
   const dispatch = useDispatch();
 
   return (
@@ -17,21 +18,22 @@ function Post(props) {
           <Avatars />
         </div>
         <div className="nickname">
-            {props.post.nickname}
+          Homer Simpson
           <div className="time">{moment(Post.time).format("LT")}</div>
         </div>
-        <div
-          className="delete"
-          onClick={() => dispatch(deletePost(props.post.id))}
-        >
+        <div className="delete" onClick={() => dispatch(deletePost(post.id))}>
           <CloseOutlined />
         </div>
       </div>
-      <Title level={4}>{props.post.title}</Title>
-      <div className="text">{props.post.text}</div>
-      <Images />
+      <Title level={4}>{post.title}</Title>
+      <div className="text">{post.text}</div>
+      <Image />
     </div>
   );
 }
+
+Post.propTypes = {
+  post: PropTypes.object,
+};
 
 export default Post;

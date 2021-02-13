@@ -1,13 +1,13 @@
 export function loadUsers() {
   return (dispatch) => {
-    dispatch({ type: "load/posts/start" });
+    dispatch({ type: "load/users/start" });
 
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch("http://localhost:3010/users")
       .then((response) => response.json())
       .then((json) => {
         dispatch({
-          type: "load/posts/success",
-          payload: json,
+          type: "load/users/success",
+          payload: json
         });
       });
   };
