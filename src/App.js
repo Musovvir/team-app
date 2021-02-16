@@ -8,6 +8,7 @@ import { loadPosts } from "./redux/actions/posts";
 import AddPostWindow from "./components/AddPostWindow";
 import Logout from "./components/Logout";
 import { loadUsers } from "./redux/actions/users";
+import Registration from "./components/Registration";
 
 function App() {
   const token = useSelector((state) => state.authorization.token);
@@ -15,32 +16,35 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadPosts(), loadUsers());
+    dispatch(loadUsers());
   });
 
-  let routes;
-
-  if (token) {
-    routes = (
-      <Switch>
-        <Route path="/logout" component={Logout} />
-        <Route path="/posts" component={Posts} />
-        <Route path="/addPostWindow" component={AddPostWindow} />
-        <Redirect to="/posts" />
-      </Switch>
-    );
-  } else {
-    routes = (
-      <Switch>
-        <Route path="/login" component={Login} />
-        <Redirect to="/login" />
-      </Switch>
-    );
-  }
+  // let routes;
+  //
+  // if (token) {
+  //   routes = (
+  //     <Switch>
+  //       <Route path="/logout" component={Logout} />
+  //       <Route path="/posts" component={Posts} />
+  //       <Route path="/addPostWindow" component={AddPostWindow} />
+  //       <Redirect to="/posts" />
+  //     </Switch>
+  //   );
+  // } else {
+  //   routes = (
+  //     <Switch>
+  //       <Route path="/login" component={Login} />
+  //       <Redirect to="/login" />
+  //     </Switch>
+  //   );
+  // }
 
   return (
     <BrowserRouter>
-      <div className="App">{routes}</div>
+      <Route path="/registration" component={Registration} />
+      {/*<Route path="/login" component={Login} />*/}
+      {/*<Route path="/logout" component={Logout} />*/}
+      {/*<Route path="/posts" component={Posts} />*/}
     </BrowserRouter>
   );
 }

@@ -9,14 +9,14 @@ function AddTitle() {
 
   const title = useSelector((state) => state.posts.title);
 
-  const GetTitle = (e) => {
+  const handleGetTitle = (e) => {
     dispatch(getTitle(e.target.value));
   };
 
   return (
     <div>
       <Form.Item>
-        <Input placeholder="Title" value={title} onChange={GetTitle} />
+        <Input placeholder="Title" value={title} onChange={handleGetTitle} />
       </Form.Item>
     </div>
   );

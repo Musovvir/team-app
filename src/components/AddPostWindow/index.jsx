@@ -8,12 +8,8 @@ import { sendPost } from "../../redux/actions/posts";
 function AddPostWindow() {
   const dispatch = useDispatch();
 
-  const text = useSelector((state) => state.posts.text);
-
-  const title = useSelector((state) => state.posts.title);
-
   const sentPost = () => {
-    dispatch(sendPost(title, text));
+    dispatch(sendPost());
   };
 
   return (

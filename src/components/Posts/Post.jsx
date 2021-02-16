@@ -1,15 +1,25 @@
-import React from "react";
+import React, {useEffect} from "react";
 import moment from "moment";
 import Avatars from "./Avatars";
 import Title from "antd/es/typography/Title";
 import { CloseOutlined } from "@ant-design/icons";
-import { deletePost } from "../../redux/actions/posts";
+import {deletePost, loadPosts} from "../../redux/actions/posts";
 import { useDispatch } from "react-redux";
 import * as PropTypes from "prop-types";
 import Image from "./Images/Image";
+import dayjs from "dayjs";
+import {loadUsers} from "../../redux/actions/users";
 
 function Post({ post }) {
   const dispatch = useDispatch();
+
+  const handleDelete = () => {
+      dispatch(deletePost(post.id))
+  }
+
+    useEffect(() => {
+        dispatch(loadPosts());
+    });
 
   return (
     <div className="post">
@@ -19,9 +29,9 @@ function Post({ post }) {
         </div>
         <div className="nickname">
           Homer Simpson
-          <div className="time">{moment(Post.time).format("LT")}</div>
+          <div className="time">{dayjs(post.time).format("LT")}</div>
         </div>
-        <div className="delete" onClick={() => dispatch(deletePost(post.id))}>
+        <div className="delete" onClick={handleDelete}>
           <CloseOutlined />
         </div>
       </div>
@@ -33,7 +43,7 @@ function Post({ post }) {
 }
 
 Post.propTypes = {
-  post: PropTypes.object,
+  post: PropTypes.object.isRequired,
 };
 
 export default Post;

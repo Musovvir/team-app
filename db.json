@@ -1,9 +1,19 @@
 {
   "posts": [
     {
-      "title": "new post",
-      "text": "new post",
+      "title": "sv",
+      "text": "svs",
+      "id": 1
+    },
+    {
+      "title": "4t3t",
+      "text": "wt3w3",
       "id": 2
+    },
+    {
+      "title": "3r2r2",
+      "text": "r23r2r",
+      "id": 3
     }
   ],
   "users": [

@@ -27,12 +27,10 @@ export function getText(text) {
   return { type: "get/text", payload: text };
 }
 
-export function getImage(image) {
-  return { type: "get/image", payload: image };
-}
+export function sendPost() {
+  return (dispatch, getState) => {
+    const { title, text, image } = getState().posts
 
-export function sendPost(title, text, image) {
-  return (dispatch) => {
     dispatch({
       type: "send/posts/start",
       payload: { title, text, image },
@@ -47,7 +45,6 @@ export function sendPost(title, text, image) {
       body: JSON.stringify({
         title,
         text,
-        image
       }),
     })
       .then((response) => response.json())
@@ -72,7 +69,7 @@ export function deletePost(id) {
       },
     })
       .then((response) => response.json())
-      .then((json) => {
+      .then(() => {
         dispatch({
           type: "delete/post/success",
           payload: id,
@@ -80,4 +77,3 @@ export function deletePost(id) {
       });
   };
 }
-

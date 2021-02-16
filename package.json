@@ -8,7 +8,6 @@
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.2",
     "dayjs": "^1.10.4",
-    "moment": "^2.29.1",
     "antd": "^4.11.2",
     "prettier": "^2.2.1",
     "prop-types": "^15.7.2",
@@ -49,7 +48,6 @@
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
-    "json-server": "^0.16.3",
-    "parcel-bundler": "^1.12.4"
+    "json-server": "^0.16.3"
   }
 }
