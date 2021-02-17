@@ -159,7 +159,12 @@ function Registration() {
         </Form.Item>
         <Link to="/registrationCompleted">
           <Form.Item {...tailFormItemLayout}>
-            <Button type="primary" htmlType="submit" onClick={sentUsers}>
+            <Button
+              type="primary"
+              htmlType="submit"
+              onClick={sentUsers}
+              disabled={getPassword.length === 0}
+            >
               Регистрация
             </Button>
           </Form.Item>

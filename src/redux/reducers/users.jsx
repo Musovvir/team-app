@@ -4,10 +4,16 @@ export const initialState = {
   nickname: "",
   email: "",
   password: "",
+  opened: true,
 };
 
 export function users(state = initialState, action) {
   switch (action.type) {
+    case "ddv":
+      return {
+        email: !0,
+      };
+
     case "load/users/start":
       return {
         ...state,

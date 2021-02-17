@@ -220,14 +220,19 @@ button .ant-btn-primary:hover {
 /*RegistrationCompleted*/
 
 .completed {
+  border: 2px solid green;
   background-color: #fff;
   box-shadow: 0 0 5px 0 whitesmoke;
   text-align: center;
   font-size: 15px;
   width: 300px;
   height: 100px;
-  margin: 250px auto;
-  padding: 35px 0;
+  margin: 200px auto;
+  padding: 15px 0;
   border-radius: 5px;
   vertical-align: middle;
+}
+
+.tape {
+  margin-top: 10px;
 }
