@@ -1,25 +1,25 @@
-import React, {useEffect} from "react";
-import moment from "moment";
+import React from "react";
 import Avatars from "./Avatars";
 import Title from "antd/es/typography/Title";
 import { CloseOutlined } from "@ant-design/icons";
-import {deletePost, loadPosts} from "../../redux/actions/posts";
-import { useDispatch } from "react-redux";
-import * as PropTypes from "prop-types";
+import { useDispatch, useSelector } from "react-redux";
+import PropTypes from "prop-types";
 import Image from "./Images/Image";
-import dayjs from "dayjs";
-import {loadUsers} from "../../redux/actions/users";
+import { deletePost } from "../../redux/reducers/posts";
+import moment from "moment/moment";
 
 function Post({ post }) {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-      dispatch(deletePost(post.id))
-  }
+    dispatch(deletePost(post.id));
+  };
 
-    useEffect(() => {
-        dispatch(loadPosts());
-    });
+  const users = useSelector((state) =>
+    state.users.users.find((user) => {
+      return user.id === post.userId;
+    })
+  );
 
   return (
     <div className="post">
@@ -28,8 +28,8 @@ function Post({ post }) {
           <Avatars />
         </div>
         <div className="nickname">
-          Homer Simpson
-          <div className="time">{dayjs(post.time).format("LT")}</div>
+          {users.login}
+          <div className="time">{moment().startOf("hour").fromNow()}</div>
         </div>
         <div className="delete" onClick={handleDelete}>
           <CloseOutlined />

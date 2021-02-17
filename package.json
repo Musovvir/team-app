@@ -7,9 +7,8 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.2",
-    "dayjs": "^1.10.4",
     "antd": "^4.11.2",
-    "prettier": "^2.2.1",
+    "moment": "^2.29.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -26,8 +25,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "concurrently \"npm start\" \"json-server --watch db.json --port 3010\""
+    "dev": "concurrently \"npm start\" \"node server.js\""
   },
+  "proxy": "http://localhost:3005",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
-    "json-server": "^0.16.3"
+    "json-server": "^0.16.3",
+    "prettier": "^2.2.1"
   }
 }

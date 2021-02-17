@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { logoutStart } from "../redux/actions/authorization";
+import { logoutStart } from "../redux/reducers/authorization";
+import { Button, Form } from "antd";
 
 function Logout() {
   const dispatch = useDispatch();
@@ -11,9 +12,11 @@ function Logout() {
     dispatch(logoutStart());
   };
   return (
-    <div className="logout">
-      <span onClick={logout}>Выход</span>
-    </div>
+    <Form.Item>
+      <Button type="primary" className="logoutBlock" onClick={logout}>
+        Выйти
+      </Button>
+    </Form.Item>
   );
 }
 

@@ -1,8 +1,33 @@
 import React from "react";
-import { Form, Input, Tooltip, Checkbox, Button } from "antd";
-import { QuestionCircleOutlined } from "@ant-design/icons";
+import { Form, Input, Checkbox, Button } from "antd";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import {
+  getEmail,
+  getLogin,
+  getPassword,
+  sendUsers,
+} from "../../redux/reducers/users";
 
 function Registration() {
+  const dispatch = useDispatch();
+
+  const handleGetLogin = (e) => {
+    dispatch(getLogin(e.target.value));
+  };
+
+  const handleGetEmail = (e) => {
+    dispatch(getEmail(e.target.value));
+  };
+
+  const handleGetPassword = (e) => {
+    dispatch(getPassword(e.target.value));
+  };
+
+  const sentUsers = () => {
+    dispatch(sendUsers());
+  };
+
   const formItemLayout = {
     labelCol: {
       xs: {
@@ -37,16 +62,11 @@ function Registration() {
   const RegistrationForm = () => {
     const [form] = Form.useForm();
 
-    const onFinish = (values) => {
-      console.log("Received values of form: ", values);
-    };
-
     return (
       <Form
         {...formItemLayout}
         form={form}
         name="register"
-        onFinish={onFinish}
         initialValues={{
           residence: ["zhejiang", "hangzhou", "xihu"],
           prefix: "86",
@@ -55,11 +75,7 @@ function Registration() {
       >
         <Form.Item
           name="nickname"
-          label={
-            <span>
-              Имя (полное)
-            </span>
-          }
+          label={<span>Имя (полное)</span>}
           rules={[
             {
               required: true,
@@ -68,7 +84,7 @@ function Registration() {
             },
           ]}
         >
-          <Input />
+          <Input onChange={handleGetLogin} />
         </Form.Item>
         <Form.Item
           name="email"
@@ -84,7 +100,7 @@ function Registration() {
             },
           ]}
         >
-          <Input />
+          <Input onChange={handleGetEmail} />
         </Form.Item>
 
         <Form.Item
@@ -98,7 +114,7 @@ function Registration() {
           ]}
           hasFeedback
         >
-          <Input.Password />
+          <Input.Password onChange={handleGetPassword} />
         </Form.Item>
 
         <Form.Item
@@ -124,7 +140,7 @@ function Registration() {
             }),
           ]}
         >
-          <Input.Password />
+          <Input.Password onChange={handleGetPassword} />
         </Form.Item>
         <Form.Item
           name="agreement"
@@ -141,16 +157,22 @@ function Registration() {
         >
           <Checkbox>Я обещаю дать дипломную!</Checkbox>
         </Form.Item>
-        <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">
-            Регистрация
-          </Button>
-        </Form.Item>
+        <Link to="/registrationCompleted">
+          <Form.Item {...tailFormItemLayout}>
+            <Button type="primary" htmlType="submit" onClick={sentUsers}>
+              Регистрация
+            </Button>
+          </Form.Item>
+        </Link>
       </Form>
     );
   };
 
-  return <RegistrationForm />;
+  return (
+    <div>
+      <RegistrationForm />
+    </div>
+  );
 }
 
 export default Registration;

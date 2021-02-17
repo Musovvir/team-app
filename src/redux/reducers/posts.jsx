@@ -4,7 +4,6 @@ export const initialState = {
   opened: true,
   title: "",
   text: "",
-  image: "",
   deleting: false,
 };
 
@@ -41,10 +40,11 @@ export function posts(state = initialState, action) {
         text: action.payload,
       };
 
-    case "get/image":
+    case "clear/input":
       return {
         ...state,
-        image: action.payload,
+        title: "",
+        text: "",
       };
 
     case "send/posts/start":
@@ -79,4 +79,90 @@ export function posts(state = initialState, action) {
     default:
       return state;
   }
+}
+
+//Actions
+
+export function loadPosts() {
+  return (dispatch) => {
+    dispatch({ type: "load/posts/start" });
+
+    fetch("/posts")
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch({
+          type: "load/posts/success",
+          payload: json,
+        });
+      });
+  };
+}
+
+export function toggleModal() {
+  return { type: "toggle/modal" };
+}
+
+export function getTitle(title) {
+  return { type: "get/title", payload: title };
+}
+
+export function getText(text) {
+  return { type: "get/text", payload: text };
+}
+
+export function sendPost() {
+  return (dispatch, getState) => {
+    const { title, text } = getState().posts;
+    const { profile } = getState().authorization;
+    console.log(profile);
+
+    dispatch({
+      type: "send/posts/start",
+      payload: { title, text, userId: profile.id },
+    });
+
+    fetch("/posts", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title,
+        text,
+        userId: profile.id,
+      }),
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch({
+          type: "send/posts/success",
+        });
+      });
+  };
+}
+
+export function deletePost(id) {
+  return (dispatch) => {
+    dispatch({ type: "delete/post/start" });
+
+    fetch(`/posts/${id}`, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then(() => {
+        dispatch({
+          type: "delete/post/success",
+          payload: id,
+        });
+      });
+  };
+}
+
+export function clearInput() {
+  return { type: "clear/input" };
 }

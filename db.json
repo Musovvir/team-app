@@ -1,27 +1,30 @@
 {
   "posts": [
     {
-      "title": "sv",
-      "text": "svs",
-      "id": 1
-    },
-    {
-      "title": "4t3t",
-      "text": "wt3w3",
+      "title": "ввава",
+      "text": "вава",
+      "userId": 1,
       "id": 2
     },
     {
-      "title": "3r2r2",
-      "text": "r23r2r",
+      "title": "sdds",
+      "text": "sdsds",
+      "userId": 1,
       "id": 3
     }
   ],
   "users": [
     {
-      "userId": 1,
-      "login": "admin",
-      "password": "qwerty",
-      "token": "qwer123(20)$"
+      "login": "user",
+      "email": "simpson@mail.ru",
+      "password": "12345",
+      "id": 1
+    },
+    {
+      "login": "вавав",
+      "email": "musovvir@mail.ru",
+      "password": "12345",
+      "id": 2
     }
   ]
 }

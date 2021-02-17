@@ -1,9 +1,9 @@
 import React from "react";
 import { PlusOutlined } from "@ant-design/icons";
 import { Button } from "antd";
-import { toggleModal } from "../../redux/actions/posts";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { toggleModal } from "../../redux/reducers/posts";
 
 function AddPost() {
   const dispatch = useDispatch();

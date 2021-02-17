@@ -1,10 +1,9 @@
 import React from "react";
 import { Form, Input } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { getTitle } from "../../redux/actions/posts";
+import { getTitle } from "../../redux/reducers/posts";
 
 function AddTitle() {
-
   const dispatch = useDispatch();
 
   const title = useSelector((state) => state.posts.title);
@@ -16,7 +15,11 @@ function AddTitle() {
   return (
     <div>
       <Form.Item>
-        <Input placeholder="Title" value={title} onChange={handleGetTitle} />
+        <Input
+          placeholder="Введите заголовок"
+          value={title}
+          onChange={handleGetTitle}
+        />
       </Form.Item>
     </div>
   );
