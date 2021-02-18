@@ -8,7 +8,6 @@ import moment from "moment/moment";
 import DeletePost from "./DeletePost";
 
 function Post({ post }) {
-
   const users = useSelector((state) =>
     state.users.users.find((user) => {
       return user.id === post.userId;

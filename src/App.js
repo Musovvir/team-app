@@ -7,7 +7,6 @@ import AddPostWindow from "./components/AddPostWindow";
 import Logout from "./components/Logout";
 import RegistrationCompleted from "./components/Registration/RegistrationCompleted";
 import { loadUsers } from "./redux/reducers/users";
-import { loadPosts } from "./redux/reducers/posts";
 import Registration from "./components/Registration";
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
 
   useEffect(() => {
     dispatch(loadUsers());
-    dispatch(loadPosts());
   }, [dispatch]);
 
   return (
