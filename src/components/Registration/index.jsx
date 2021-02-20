@@ -74,7 +74,7 @@ function Registration() {
         scrollToFirstError
       >
         <Form.Item
-          name="nickname"
+          name="login"
           label={<span>Имя (полное)</span>}
           rules={[
             {
@@ -114,7 +114,10 @@ function Registration() {
           ]}
           hasFeedback
         >
-          <Input.Password onChange={handleGetPassword} />
+          <Input.Password
+            type="password"
+            onChange={handleGetPassword}
+          />
         </Form.Item>
 
         <Form.Item
@@ -134,13 +137,16 @@ function Registration() {
                 }
 
                 return Promise.reject(
-                  "The two passwords that you entered do not match!"
+                  "Введенные Вами пароля не совпадают!"
                 );
               },
             }),
           ]}
         >
-          <Input.Password onChange={handleGetPassword} />
+          <Input.Password
+            type="password"
+            onChange={handleGetPassword}
+          />
         </Form.Item>
         <Form.Item
           name="agreement"
@@ -163,7 +169,6 @@ function Registration() {
               type="primary"
               htmlType="submit"
               onClick={sentUsers}
-              disabled={getPassword.length === 0}
             >
               Регистрация
             </Button>

@@ -53,6 +53,7 @@ body {
   margin-left: 20px;
   font-size: 13px;
   font-family: "Roboto", sans-serif;
+  word-wrap: break-word;
 }
 
 .nickname {
@@ -66,12 +67,12 @@ body {
 /*Image*/
 
 .commonImage {
-  margin: 20px 0 0 20px;
-}
-
-.image {
   width: 510px;
   height: 400px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  margin: 20px 0 10px 20px;
   border-radius: 3px;
 }
 

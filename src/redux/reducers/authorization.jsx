@@ -2,6 +2,7 @@ const initialState = {
   token: localStorage.getItem("auth-token"),
   authorizing: localStorage.getItem("authorizing") || false,
   profile: JSON.parse(localStorage.getItem("profile")) || {},
+  checked: null,
   error: false,
 };
 
@@ -34,6 +35,12 @@ export function authorization(state = initialState, action) {
         ...state,
         authorizing: false,
         profile: {},
+      };
+
+    case "toggle/check":
+      return {
+        ...state,
+        checked: !state.checked,
       };
 
     default:
@@ -91,4 +98,10 @@ export const authorizationStart = (login, password) => (dispatch) => {
       });
     })
     .catch(() => dispatch({ type: "authorization/error" }));
+};
+
+export const toggleCheck = () => {
+  return (dispatch) => {
+    dispatch({ type: "toggle/check" });
+  };
 };

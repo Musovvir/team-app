@@ -4,13 +4,14 @@ import Title from "antd/es/typography/Title";
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import Image from "./Images/Image";
-import moment from "moment/moment";
 import DeletePost from "./DeletePost";
+import 'antd/es/date-picker/style/index';
+import dayjs from "dayjs";
 
 function Post({ post }) {
   const users = useSelector((state) =>
     state.users.users.find((user) => {
-      return user.id === post.userId;
+      return user.id === post.id;
     })
   );
 
@@ -21,10 +22,10 @@ function Post({ post }) {
           <Avatars />
         </div>
         <div className="nickname">
-          {users.login}
-          <div className="time">{moment().startOf("hour").fromNow()}</div>
+            {users?.login}
+          <div className="time"><div>{dayjs().format("hh:mm")}</div></div>
         </div>
-        <DeletePost post={post} />
+        <DeletePost post={post}/>
       </div>
       <Title level={4}>{post.title}</Title>
       <div className="text">{post.text}</div>

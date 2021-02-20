@@ -1,29 +1,23 @@
 {
   "posts": [
     {
-      "title": "Новый пост",
-      "text": "Ураааа!",
+      "title": "dfdfd",
+      "text": "dfdfd",
       "userId": 1,
       "id": 1
-    },
-    {
-      "title": "qwert",
-      "text": "qwert",
-      "userId": 1,
-      "id": 2
     }
   ],
   "users": [
     {
-      "login": "user",
-      "email": "simpson@mail.ru",
-      "password": "12345",
+      "login": "muzagov",
+      "email": "musovvir@mail.ru",
+      "password": "123",
       "id": 1
     },
     {
-      "login": "вавав",
-      "email": "musovvir@mail.ru",
-      "password": "12345",
+      "login": "Висхан Музагов",
+      "email": "fgdf@mail.ru",
+      "password": "54321",
       "id": 2
     }
   ]

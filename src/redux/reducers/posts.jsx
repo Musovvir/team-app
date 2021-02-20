@@ -4,6 +4,7 @@ export const initialState = {
   opened: true,
   title: "",
   text: "",
+  time: "",
   deleting: false,
 };
 
@@ -134,7 +135,7 @@ export function sendPost() {
       }),
     })
       .then((response) => response.json())
-      .then((json) => {
+      .then(() => {
         dispatch({
           type: "send/posts/success",
         });

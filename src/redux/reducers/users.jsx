@@ -1,7 +1,7 @@
 export const initialState = {
   loading: false,
   users: [],
-  nickname: "",
+  login: "",
   email: "",
   password: "",
   opened: true,
@@ -9,11 +9,6 @@ export const initialState = {
 
 export function users(state = initialState, action) {
   switch (action.type) {
-    case "ddv":
-      return {
-        email: !0,
-      };
-
     case "load/users/start":
       return {
         ...state,
@@ -30,7 +25,7 @@ export function users(state = initialState, action) {
     case "get/login":
       return {
         ...state,
-        nickname: action.payload,
+        login: action.payload,
       };
 
     case "get/email":
@@ -83,8 +78,8 @@ export function loadUsers() {
   };
 }
 
-export function getLogin(nickname) {
-  return { type: "get/login", payload: nickname };
+export function getLogin(login) {
+  return { type: "get/login", payload: login };
 }
 
 export function getEmail(email) {
@@ -97,11 +92,11 @@ export function getPassword(password) {
 
 export function sendUsers() {
   return (dispatch, getState) => {
-    const { nickname, email, password } = getState().users;
+    const { login, email, password } = getState().users;
 
     dispatch({
       type: "send/users/start",
-      payload: { nickname, email, password },
+      payload: { login, email, password },
     });
 
     fetch("/users", {
@@ -111,7 +106,7 @@ export function sendUsers() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        nickname,
+        login,
         email,
         password,
       }),

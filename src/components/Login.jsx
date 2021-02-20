@@ -5,7 +5,7 @@ import { Button, Form } from "antd";
 function Login() {
   const history = useHistory();
 
-  const login = (e) => {
+  const login = () => {
     history.push("/login");
   };
   return (
