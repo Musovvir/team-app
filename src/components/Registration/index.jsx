@@ -114,10 +114,7 @@ function Registration() {
           ]}
           hasFeedback
         >
-          <Input.Password
-            type="password"
-            onChange={handleGetPassword}
-          />
+          <Input.Password type="password" onChange={handleGetPassword} />
         </Form.Item>
 
         <Form.Item
@@ -136,17 +133,12 @@ function Registration() {
                   return Promise.resolve();
                 }
 
-                return Promise.reject(
-                  "Введенные Вами пароля не совпадают!"
-                );
+                return Promise.reject("Введенные Вами пароля не совпадают!");
               },
             }),
           ]}
         >
-          <Input.Password
-            type="password"
-            onChange={handleGetPassword}
-          />
+          <Input.Password type="password" onChange={handleGetPassword} />
         </Form.Item>
         <Form.Item
           name="agreement"
@@ -165,11 +157,7 @@ function Registration() {
         </Form.Item>
         <Link to="/registrationCompleted">
           <Form.Item {...tailFormItemLayout}>
-            <Button
-              type="primary"
-              htmlType="submit"
-              onClick={sentUsers}
-            >
+            <Button type="primary" htmlType="submit" onClick={sentUsers}>
               Регистрация
             </Button>
           </Form.Item>

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import Image from "./Images/Image";
 import DeletePost from "./DeletePost";
-import 'antd/es/date-picker/style/index';
+import "antd/es/date-picker/style/index";
 import dayjs from "dayjs";
 
 function Post({ post }) {
@@ -22,10 +22,12 @@ function Post({ post }) {
           <Avatars />
         </div>
         <div className="nickname">
-            {users?.login}
-          <div className="time"><div>{dayjs().format("hh:mm")}</div></div>
+          {users?.login}
+          <div className="time">
+            <div>{dayjs().format("hh:mm")}</div>
+          </div>
         </div>
-        <DeletePost post={post}/>
+        <DeletePost post={post} />
       </div>
       <Title level={4}>{post.title}</Title>
       <div className="text">{post.text}</div>

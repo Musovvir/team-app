@@ -15,8 +15,7 @@ function Image() {
                   "https://www.sostav.ru/app/public/images/news/2015/12/18/Screenshot_2.jpg?rand=0.2807936074677855" +
                   ")",
               }}
-            >
-            </div>
+            ></div>
           </Col>
         </Row>
       </div>
