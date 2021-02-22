@@ -19,6 +19,24 @@
       "email": "fgdf@mail.ru",
       "password": "54321",
       "id": 2
+    },
+    {
+      "login": "Qwerty",
+      "email": "musovvir@mail.ru",
+      "password": "123",
+      "id": 3
+    },
+    {
+      "login": "Qwer",
+      "email": "qwer@mail.ru",
+      "password": "123",
+      "id": 4
+    },
+    {
+      "login": "mmm",
+      "email": "m@mail.ru",
+      "password": "2004",
+      "id": 5
     }
   ]
 }
