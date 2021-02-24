@@ -16,6 +16,10 @@ function DeletePost({ post }) {
 
   const authorizing = useSelector((state) => state.authorization.authorizing);
 
+  if (profile.id !== post.userId) {
+    return null;
+  }
+
   return (
     <div className="delete" onClick={handleDelete}>
       {authorizing ? <CloseOutlined /> : ""}

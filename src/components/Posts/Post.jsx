@@ -11,7 +11,7 @@ import dayjs from "dayjs";
 function Post({ post }) {
   const users = useSelector((state) =>
     state.users.users.find((user) => {
-      return user.id === post.id;
+      return user.id === post.userId;
     })
   );
 
@@ -24,7 +24,7 @@ function Post({ post }) {
         <div className="nickname">
           {users?.login}
           <div className="time">
-            <div>{dayjs().format("hh:mm")}</div>
+            <div>{dayjs(post.date).format("hh:mm")}</div>
           </div>
         </div>
         <DeletePost post={post} />

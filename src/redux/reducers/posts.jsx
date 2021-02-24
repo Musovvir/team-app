@@ -4,7 +4,6 @@ export const initialState = {
   opened: true,
   title: "",
   text: "",
-  time: "",
   deleting: false,
 };
 
@@ -115,11 +114,10 @@ export function sendPost() {
   return (dispatch, getState) => {
     const { title, text } = getState().posts;
     const { profile } = getState().authorization;
-    console.log(profile);
 
     dispatch({
       type: "send/posts/start",
-      payload: { title, text, userId: profile.id },
+      payload: { title, text, date: new Date(), userId: profile.id },
     });
 
     fetch("/posts", {
@@ -131,6 +129,7 @@ export function sendPost() {
       body: JSON.stringify({
         title,
         text,
+        date: new Date(),
         userId: profile.id,
       }),
     })
