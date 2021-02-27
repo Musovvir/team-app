@@ -10,6 +10,8 @@ const logger = createLogger({
   diff: true,
 });
 
+//fixme сделать даксы по правилам
+
 const rootReducer = combineReducers({ posts, authorization, users });
 
 export const store = createStore(rootReducer, applyMiddleware(thunk, logger));

@@ -8,6 +8,7 @@ function AddText() {
 
   const text = useSelector((state) => state.posts.text);
 
+  //fixme название с заглавной - исправить
   const GetText = (e) => {
     dispatch(getText(e.target.value));
   };

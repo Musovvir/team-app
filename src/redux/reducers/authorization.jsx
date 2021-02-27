@@ -6,6 +6,8 @@ const initialState = {
   error: false,
 };
 
+//fixme локал сторедж через конфигур стор
+
 export function authorization(state = initialState, action) {
   switch (action.type) {
     case "authorization/success":

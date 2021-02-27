@@ -56,6 +56,7 @@ export function posts(state = initialState, action) {
     case "send/posts/success":
       return {
         ...state,
+        //fixme нет смысла
         posts: state.posts.map((post) => {
           return {
             ...post,

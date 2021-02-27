@@ -5,6 +5,7 @@ export const initialState = {
   email: "",
   password: "",
   opened: true,
+  //fixme убрать лишние ключи
 };
 
 export function users(state = initialState, action) {

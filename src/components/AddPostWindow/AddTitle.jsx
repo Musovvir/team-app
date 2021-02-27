@@ -8,6 +8,7 @@ function AddTitle() {
 
   const title = useSelector((state) => state.posts.title);
 
+  //fixme handleChangeTitle
   const handleGetTitle = (e) => {
     dispatch(getTitle(e.target.value));
   };
