@@ -6,6 +6,13 @@
       "date": "2021-02-23T14:19:42.061Z",
       "userId": 1,
       "id": 3
+    },
+    {
+      "title": "w",
+      "text": "ewew",
+      "date": "2021-03-03T15:40:45.699Z",
+      "userId": 6,
+      "id": 4
     }
   ],
   "users": [
@@ -38,6 +45,12 @@
       "email": "m@mail.ru",
       "password": "2004",
       "id": 5
+    },
+    {
+      "login": "апар",
+      "email": "ge@mail.ru",
+      "password": "123",
+      "id": 6
     }
   ]
 }

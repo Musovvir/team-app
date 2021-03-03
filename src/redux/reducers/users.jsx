@@ -1,14 +1,15 @@
+/** State **/
+
 export const initialState = {
   loading: false,
   users: [],
   login: "",
-  email: "",
-  password: "",
   opened: true,
-  //fixme убрать лишние ключи
 };
 
-export function users(state = initialState, action) {
+/** Reducer **/
+
+export default function users(state = initialState, action) {
   switch (action.type) {
     case "load/users/start":
       return {
@@ -62,33 +63,21 @@ export function users(state = initialState, action) {
   }
 }
 
-//Actions
+/** Thunks **/
 
 export function loadUsers() {
   return (dispatch) => {
     dispatch({ type: "load/users/start" });
 
     fetch("/users")
-      .then((response) => response.json())
-      .then((json) => {
-        dispatch({
-          type: "load/users/success",
-          payload: json,
+        .then((response) => response.json())
+        .then((json) => {
+          dispatch({
+            type: "load/users/success",
+            payload: json,
+          });
         });
-      });
   };
-}
-
-export function getLogin(login) {
-  return { type: "get/login", payload: login };
-}
-
-export function getEmail(email) {
-  return { type: "get/email", payload: email };
-}
-
-export function getPassword(password) {
-  return { type: "get/password", payload: password };
 }
 
 export function sendUsers() {
@@ -112,11 +101,23 @@ export function sendUsers() {
         password,
       }),
     })
-      .then((response) => response.json())
-      .then(() => {
-        dispatch({
-          type: "send/users/success",
+        .then((response) => response.json())
+        .then(() => {
+          dispatch({
+            type: "send/users/success",
+          });
         });
-      });
   };
+}
+
+export function getLogin(login) {
+  return { type: "get/login", payload: login };
+}
+
+export function getEmail(email) {
+  return { type: "get/email", payload: email };
+}
+
+export function getPassword(password) {
+  return { type: "get/password", payload: password };
 }

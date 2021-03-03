@@ -8,15 +8,14 @@ function AddText() {
 
   const text = useSelector((state) => state.posts.text);
 
-  //fixme название с заглавной - исправить
-  const GetText = (e) => {
+  const getDescription = (e) => {
     dispatch(getText(e.target.value));
   };
 
   return (
     <div>
       <Form.Item>
-        <Input placeholder="Введите описание" value={text} onChange={GetText} />
+        <Input placeholder="Введите описание" value={text} onChange={getDescription} />
       </Form.Item>
     </div>
   );

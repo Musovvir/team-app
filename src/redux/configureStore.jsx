@@ -1,17 +1,19 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import { createLogger } from "redux-logger/src";
 import thunk from "redux-thunk";
-import { posts } from "./reducers/posts";
-import { authorization } from "./reducers/authorization";
-import { users } from "./reducers/users";
+import users from "./reducers/users";
+import posts from "./reducers/posts";
+import authorization from "./reducers/authorization";
 
 const logger = createLogger({
   collapsed: true,
   diff: true,
 });
 
-//fixme сделать даксы по правилам
+const reducers = combineReducers({
+  users,
+  posts,
+  authorization,
+});
 
-const rootReducer = combineReducers({ posts, authorization, users });
-
-export const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+export const store = createStore(reducers, applyMiddleware(thunk, logger));

@@ -7,7 +7,6 @@ import "antd/dist/antd.compact.min.css";
 import "antd/dist/antd.css";
 import "./styles.css";
 
-//fixme не .jsx
 
 ReactDOM.render(
   <React.StrictMode>

@@ -9,8 +9,6 @@ import RegistrationCompleted from "./components/Registration/RegistrationComplet
 import { loadUsers } from "./redux/reducers/users";
 import Registration from "./components/Registration";
 
-//fixme not jsx
-
 function App() {
   const authorizing = useSelector((state) => state.authorization.authorizing);
 
@@ -29,11 +27,9 @@ function App() {
       <Route path="/addPostWindow" component={AddPostWindow} />
       {authorizing ? (
         <Redirect to="/posts" />
-        //fixme <Redirect to="/posts" /> повторяется в любом случае
       ) : (
         <>
           <Route path="/login" component={Authorization} />
-          <Redirect to="/posts" />
         </>
       )}
     </BrowserRouter>

@@ -5,14 +5,13 @@ import { Button, Form } from "antd";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import BackButton from "./BackButton";
-import { clearInput, sendPost } from "../../redux/reducers/posts";
+import { sendPost } from "../../redux/reducers/posts";
 
 function AddPostWindow() {
   const dispatch = useDispatch();
 
   const sentPost = () => {
     dispatch(sendPost());
-    dispatch(clearInput());
   };
 
   return (

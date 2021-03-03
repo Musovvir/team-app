@@ -1,3 +1,5 @@
+/** State **/
+
 const initialState = {
   token: localStorage.getItem("auth-token"),
   authorizing: localStorage.getItem("authorizing") || false,
@@ -6,9 +8,9 @@ const initialState = {
   error: false,
 };
 
-//fixme локал сторедж через конфигур стор
+/** Reducer **/
 
-export function authorization(state = initialState, action) {
+export default function authorization(state = initialState, action) {
   switch (action.type) {
     case "authorization/success":
       return {
@@ -50,40 +52,7 @@ export function authorization(state = initialState, action) {
   }
 }
 
-//Actions
-
-export const loginStart = (login, password) => (dispatch) => {
-  dispatch({ type: "auth/started" });
-
-  fetch("http://localhost:3010/users")
-    .then((response) => response.json())
-    .then((json) => {
-      const random = Math.random();
-
-      if (random < 0.5) {
-        dispatch({
-          type: "auth/failed",
-          payload: json,
-        });
-      } else {
-        localStorage.setItem("auth-token", json[0].token);
-
-        dispatch({
-          type: "auth/succeed",
-          payload: json[0],
-        });
-      }
-    });
-};
-
-export const logoutStart = () => {
-  localStorage.removeItem("authorizing");
-  localStorage.removeItem("profile");
-
-  return {
-    type: "auth/logout",
-  };
-};
+/** Thunks **/
 
 export const authorizationStart = (login, password) => (dispatch) => {
   dispatch({ type: "" });
@@ -102,8 +71,12 @@ export const authorizationStart = (login, password) => (dispatch) => {
     .catch(() => dispatch({ type: "authorization/error" }));
 };
 
-export const toggleCheck = () => {
-  return (dispatch) => {
-    dispatch({ type: "toggle/check" });
+export const logoutStart = () => {
+  localStorage.removeItem("authorizing");
+  localStorage.removeItem("profile");
+
+  return {
+    type: "auth/logout",
   };
 };
+

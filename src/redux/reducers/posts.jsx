@@ -1,3 +1,5 @@
+/** State **/
+
 export const initialState = {
   loading: false,
   posts: [],
@@ -7,7 +9,9 @@ export const initialState = {
   deleting: false,
 };
 
-export function posts(state = initialState, action) {
+/** Reducer **/
+
+export default function posts(state = initialState, action) {
   switch (action.type) {
     case "load/posts/start":
       return {
@@ -53,17 +57,6 @@ export function posts(state = initialState, action) {
         posts: [...state.posts, action.payload],
       };
 
-    case "send/posts/success":
-      return {
-        ...state,
-        //fixme нет смысла
-        posts: state.posts.map((post) => {
-          return {
-            ...post,
-          };
-        }),
-      };
-
     case "delete/post/start":
       return {
         ...state,
@@ -82,7 +75,7 @@ export function posts(state = initialState, action) {
   }
 }
 
-//Actions
+/** Thunks **/
 
 export function loadPosts() {
   return (dispatch) => {
@@ -97,18 +90,6 @@ export function loadPosts() {
         });
       });
   };
-}
-
-export function toggleModal() {
-  return { type: "toggle/modal" };
-}
-
-export function getTitle(title) {
-  return { type: "get/title", payload: title };
-}
-
-export function getText(text) {
-  return { type: "get/text", payload: text };
 }
 
 export function sendPost() {
@@ -140,6 +121,7 @@ export function sendPost() {
           type: "send/posts/success",
         });
       });
+    dispatch({type: "clear/input"})
   };
 }
 
@@ -164,6 +146,14 @@ export function deletePost(id) {
   };
 }
 
-export function clearInput() {
-  return { type: "clear/input" };
+export function toggleModal() {
+  return { type: "toggle/modal" };
+}
+
+export function getTitle(title) {
+  return { type: "get/title", payload: title };
+}
+
+export function getText(text) {
+  return { type: "get/text", payload: text };
 }
