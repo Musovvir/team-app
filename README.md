@@ -1,5 +1,16 @@
 # Лента на подобии ленты ВКонтакте
 
+### Что я использовал:
+
+- React
+- Redux
+- Redux-Thunk
+- Redux-Logger
+- React-Router-Dom
+- json-server
+- ANT Design
+- Concurrently
+
 ### Инструкция по запуску:
 
 1. Скачайте приложение с GitHub:
@@ -18,17 +29,5 @@
 
 - регистрация
 - авторизация
-- добавление постов
-- изменение контактов
-- удаление постов
-
-### Что я использовал:
-
-- React
-- Redux
-- Redux-Thunk
-- Redux-Logger
-- React-Router-Dom
-- json-server
-- ANT Design
-- Concurrently
+- добавление постов (только после авторизации)
+- удаление постов (только после авторизации)
